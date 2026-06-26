@@ -1,0 +1,8 @@
+say "Hello, Elitra!"
+cell name = "world"
+say "Hello, {name}!"
+~fib(n)
+    when n <= 1
+        emit n
+    fib(n - 1) + fib(n - 2)
+shout "fib(10) = {fib(10)}"

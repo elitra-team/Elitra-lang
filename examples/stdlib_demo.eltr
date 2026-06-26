@@ -1,0 +1,53 @@
+load "std/math" as m
+
+shout "pi = {m.pi}"
+shout "e = {m.e}"
+shout "sin(pi/2) = {m.sin(m.pi / 2)}"
+shout "clamp(15, 0, 10) = {m.clamp(15, 0, 10)}"
+shout "lerp(0, 10, 0.5) = {m.lerp(0, 10, 0.5)}"
+shout "deg_to_rad(180) = {m.deg_to_rad(180)}"
+
+load "std/str" as s
+
+shout "starts_with: {s.starts_with(\"hello\", \"he\")}"
+shout "pad_end: '{s.pad_end(\"hello\", 8, \".\")}'"
+shout "capitalize: {s.capitalize(\"hello world\")}"
+shout "title: {s.title(\"hello world from elitra\")}"
+shout "reverse: {s.reverse(\"abcdef\")}"
+shout "bytes(hello): {s.bytes(\"hello\")}"
+
+load "std/list" as l
+
+cell arr = [1, 2, 3, 4, 5]
+shout "list.first: {l.first(arr)}"
+shout "list.last: {l.last(arr)}"
+shout "list.slice(1, 3): {l.slice(arr, 1, 3)}"
+shout "list.chunk(arr, 2): {l.chunk(arr, 2)}"
+shout "list.flatten: {l.flatten([[1, 2], [3, 4]])}"
+shout "list.enumerate: {l.enumerate([\"a\", \"b\", \"c\"])}"
+
+load "std/datetime" as dt
+
+shout "timestamp: {dt.timestamp()}"
+shout "year: {dt.year()}"
+shout "format: {dt.format(\"%H:%M:%S\")}"
+
+load "std/json" as json
+
+shout "json.encode: {json.encode([1, 2, 3])}"
+cell parsed = json.decode("{\"a\": 42}")
+shout "json.decode.a: {parsed[\"a\"]}"
+
+load "std/os" as os
+
+shout "os.name: {os.name()}"
+shout "os.arch: {os.arch()}"
+shout "os.pid: {os.pid()}"
+shout "os.current_dir: {os.current_dir()}"
+
+load "std/fs" as fs
+
+shout "fs.exists .gitignore: {fs.exists(\".gitignore\")}"
+shout "fs.is_file Cargo.toml: {fs.is_file(\"Cargo.toml\")}"
+cell files = fs.list_dir(".")
+shout "fs.list_dir: {len(files)} entries"

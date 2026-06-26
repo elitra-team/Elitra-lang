@@ -1,0 +1,3 @@
+load "std/math" as m
+shout(m.pi)
+shout(m.sin(1.0))

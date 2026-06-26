@@ -1,0 +1,4 @@
+load "std/math" as m
+cell x = m.pi
+shout(x)
+shout(m.sin(1.0))
